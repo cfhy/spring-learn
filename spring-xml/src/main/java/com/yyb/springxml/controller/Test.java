@@ -7,6 +7,7 @@ public class Test {
     public static void main(String[] args) {
         ClassPathXmlApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring-config.xml");
         Person person = applicationContext.getBean(Person.class);
+        String[] beanNamesForType = applicationContext.getBeanNamesForType(Person.class);
         person.networking();
     }
 }

@@ -1,9 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <import resource="classpath:spring-controller-config.xml"/>
-    <import resource="classpath:spring-service-config.xml"/>
+    <bean id="computer" class="com.yyb.springxml.model.Computer">
+        <constructor-arg name="name" value="macbook"/>
+    </bean>
+    <!--<bean id="computer" class="com.yyb.springxml.model.Computer" c:_="yyb" />-->
 
+    <bean id="person" class="com.yyb.springxml.model.Person">
+        <!--将字面量注入到构造器中-->
+        <constructor-arg name="name" value="yyb"/>
+        <constructor-arg name="computer" ref="computer"/>
+    </bean>
+    <!--<bean class="com.yyb.springxml.model.Person" c:name="yyb" c:computer-ref="computer" />-->
+
+    <!--<bean class="com.yyb.springxml.model.Person" c:_0="yyb" c:_1-ref="computer" />-->
 </beans>
