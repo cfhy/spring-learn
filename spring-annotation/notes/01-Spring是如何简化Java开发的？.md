@@ -24,7 +24,7 @@ Spring竭力避免因自身的API而弄乱你的应用代码。不会强迫你�
 ```
 或者
 ```java
-public class JavaConfig {
+public class JavaProfileConfig {
     @Bean
     public Person person(){
         return new Person("yyb",computer());

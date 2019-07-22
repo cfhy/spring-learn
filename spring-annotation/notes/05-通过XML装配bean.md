@@ -49,3 +49,61 @@ Spring自动化装配和显式配置以及XML配置这三种方式可以混合�
     <bean id="computer" class="com.yyb.springxml.model.Computer" c:_="yyb" />
 ```
 ### 装配集合
+```xml
+<!--值类型的集合-->
+        <constructor-arg>
+            <list>
+                <value>看书</value>
+                <value>旅行</value>
+            </list>
+        </constructor-arg>
+        <!--引用类型的集合-->
+        <constructor-arg>
+            <list>
+                <ref bean="computer1" />
+                <ref  bean="computer2" />
+            </list>
+        </constructor-arg>
+```
+也可以按照同样的方式使用<set>元素,把list变成set即可
+
+目前，使用c-命名空间的属性无法实现装配集合的功能。
+
+### 使用属性注入
+```xml
+      <bean id="person" class="com.yyb.springxml.model.Person">
+        <!--将字面量注入到属性中-->
+        <property name="name" value="yyb"/>
+           <!--将对象的引用注入到属性中-->
+          <property name="computer" ref="computer"/>
+          <!--注入集合-->
+          <property name="hobbyList">
+              <list>
+                  <value>读书</value>
+                  <value>旅行</value>
+              </list>
+          </property>
+      </bean>
+```
+与c-命名空间类似，Spring也提供了更加简洁的p-命名空间，作为<property>元素的替代方案。
+```xml
+    <bean id="person" class="com.yyb.springxml.model.Person" p:name="yyb" p:computer="computer" >
+        <property name="hobbyList">
+            <list>
+                <value>读书</value>
+                <value>旅行</value>
+            </list>
+        </property>
+    </bean>
+```
+虽然我们不能使用p-命名空间来装配集合，但是，可以使用Spring util-命名空间中的一些功能来简化。
+```xml
+    <bean id="person" class="com.yyb.springxml.model.Person" p:name="yyb" p:computer="computer" 
+    p:hobbyList-ref="hobbyList" />
+
+    <util:list id="hobbyList">
+        <value>读书</value>
+        <value>旅行</value>
+    </util:list>
+```
+

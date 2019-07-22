@@ -19,7 +19,7 @@ public class BeanConfig {
 
 @Configuration
 @ComponentScan(basePackages ={ "com.yyb.springannonation.model", "com.yyb.springannonation.config"})
-public class JavaConfig {
+public class JavaProfileConfig {
 
 }
 
@@ -47,7 +47,7 @@ public class Student {
 
 public class Test {
     public static void main(String[] args) {
-        AnnotationConfigApplicationContext annotationConfigApplicationContext = new AnnotationConfigApplicationContext(JavaConfig.class);
+        AnnotationConfigApplicationContext annotationConfigApplicationContext = new AnnotationConfigApplicationContext(JavaProfileConfig.class);
         Student student = annotationConfigApplicationContext.getBean(Student.class);
         student.read();
     }

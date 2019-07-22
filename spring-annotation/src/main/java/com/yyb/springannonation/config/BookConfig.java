@@ -4,8 +4,10 @@ import com.yyb.springannonation.model.Book;
 import com.yyb.springannonation.model.Student;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 
 @Configuration
+@Profile("dev")
 public class BookConfig {
     @Bean
     public Book book() {

@@ -13,6 +13,7 @@
         <module>spring-mvc-xml</module>
         <module>spring-annotation</module>
         <module>spring-xml</module>
+        <module>spring-mvc-xml</module>
     </modules>
 
     <properties>
