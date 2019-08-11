@@ -25,3 +25,7 @@ xml方式
 ```xml
     <bean id="alipay" class="com.yyb.springxml.service.Alipay"  scope="prototype"/>
 ```
+单例在IOC容器启动就创建对象放在容器中;多例在bean每次获取的时候都会创建；
+
+### @lazy注解
+懒加载：懒加载只针对单实例bean，容器启动的时候先不创建对象，在第一次获取的时候再创建对象
