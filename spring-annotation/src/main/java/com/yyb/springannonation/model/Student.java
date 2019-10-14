@@ -1,9 +1,15 @@
 package com.yyb.springannonation.model;
 
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+
+@Component
 public class Student {
+    @Value("${student.name}")
     private String name;
     private Book book;
-
+    public Student() {
+    }
     public Student(String name, Book book) {
         this.name = name;
         this.book = book;

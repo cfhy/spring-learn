@@ -12,6 +12,8 @@
         <module>spring-mvc</module>
         <module>spring-annotation</module>
         <module>spring-xml</module>
+        <module>spring-boot-learn</module>
+        <module>spring-trans</module>
     </modules>
 
     <properties>
