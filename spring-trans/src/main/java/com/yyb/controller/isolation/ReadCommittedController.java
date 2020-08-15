@@ -1,8 +1,8 @@
-package com.yyb.controller;
+package com.yyb.controller.isolation;
 
 import com.yyb.common.response.ResponseData;
-import com.yyb.service.BigDataService;
-import com.yyb.service.TransWaitService;
+import com.yyb.service.ReadCommittedService;
+import com.yyb.service.ReadUncommittedService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -10,15 +10,21 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController
-@RequestMapping("bigData")
-public class BigDataController {
+@RequestMapping("readCommitted")
+public class ReadCommittedController {
 
     @Autowired
-    private BigDataService bigDataService;
+    private ReadCommittedService readCommittedService;
 
     @RequestMapping(value = "/test1",method = RequestMethod.GET)
     public ResponseData test1(){
-        bigDataService.insertTenMillionData();
+        readCommittedService.test1();
+        return ResponseData.success();
+    }
+
+    @RequestMapping(value = "/test2",method = RequestMethod.GET)
+    public ResponseData test2(){
+        readCommittedService.test2();
         return ResponseData.success();
     }
 }

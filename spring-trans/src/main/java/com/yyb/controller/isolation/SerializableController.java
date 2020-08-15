@@ -1,8 +1,8 @@
-package com.yyb.controller;
+package com.yyb.controller.isolation;
 
 import com.yyb.common.response.ResponseData;
-import com.yyb.service.ReadUncommittedService;
-import com.yyb.service.TransWaitService;
+import com.yyb.service.RepeatableReadService;
+import com.yyb.service.SerializableService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -10,21 +10,21 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController
-@RequestMapping("transWait")
-public class TransWaitController {
+@RequestMapping("serializable")
+public class SerializableController {
 
     @Autowired
-    private TransWaitService transWaitService;
+    private SerializableService serializableService;
 
     @RequestMapping(value = "/test1",method = RequestMethod.GET)
     public ResponseData test1(){
-        transWaitService.test1();
+        serializableService.test1();
         return ResponseData.success();
     }
 
     @RequestMapping(value = "/test2",method = RequestMethod.GET)
     public ResponseData test2(){
-        transWaitService.test2();
+        serializableService.test2();
         return ResponseData.success();
     }
 }
