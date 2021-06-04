@@ -26,7 +26,7 @@
         <slf4j.version>1.6.4</slf4j.version>
         <jackson.version>2.9.1</jackson.version>
         <druid.version>1.0.29</druid.version>
-        <httpclient.version>4.5.3</httpclient.version>
+        <httpclient.version>4.5.13</httpclient.version>
         <jstl.version>1.2</jstl.version>
         <jsp-api.version>2.2</jsp-api.version>
         <joda-time.version>2.9.9</joda-time.version>
